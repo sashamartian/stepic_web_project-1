@@ -12,10 +12,11 @@ def index(request):
 	questions = Question.objects.new()
 	paginator, page = paginate(request, questions)
 	paginator.baseurl = '/?page='
-	return render (request, 'new.html', {
+	return render (request, 'new_and_popular.html', {
 		'questions': page.object_list,
 		'paginator': paginator,
-		'page': page
+		'page': page,
+		'title': 'New questions'
 	})
 
 
@@ -24,10 +25,11 @@ def popular(request):
 	questions = Question.objects.popular()
 	paginator, page = paginate(request, questions)
 	paginator.baseurl = '/popular/?page='
-	return render (request, 'popular.html', {
+	return render (request, 'new_and_popular.html', {
 		'questions': page.object_list,
 		'paginator': paginator,
-		'page': page
+		'page': page,
+		'title': 'Popular questions'
 	})
 
 

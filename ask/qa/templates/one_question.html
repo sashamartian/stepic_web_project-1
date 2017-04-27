@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{question.titile}}</title>
+  </head>
+  <body>
+    <div>
+      <h2>{{question.title}}</h2>
+      <div>
+        <p>{{questions.text}}</p>
+        <p>{{questions.added_at}}</p>
+        <p>{{questions.rating}}</p>
+        <p>{{questions.author}}</p>
+        <p>{{questions.likes}}</p>
+      </div>
+      <div>
+        {% for a in answers %}
+          <p>{{a.text}}</p>
+          <p>{{a.added_at}}</p>
+          <p>{{a.author}}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
