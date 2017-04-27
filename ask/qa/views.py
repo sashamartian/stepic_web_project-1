@@ -1,7 +1,7 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404, render
 
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage
 from django.views.decorators.http import require_GET
 
 from .models import Question, Answer
@@ -12,7 +12,7 @@ def index(request):
 	questions = Question.objects.new()
 	paginator, page = paginate(request, questions)
 	paginator.baseurl = '/?page='
-	return render (request, 'new_and_popular.html', {
+	return render (request, 'new.html', {
 		'questions': page.object_list,
 		'paginator': paginator,
 		'page': page,
@@ -25,7 +25,7 @@ def popular(request):
 	questions = Question.objects.popular()
 	paginator, page = paginate(request, questions)
 	paginator.baseurl = '/popular/?page='
-	return render (request, 'new_and_popular.html', {
+	return render (request, 'popular.html', {
 		'questions': page.object_list,
 		'paginator': paginator,
 		'page': page,
