@@ -19,15 +19,14 @@ from django.contrib import admin
 
 from qa.views import index, popular, test
 
-
 urlpatterns = [
-    url(r'^$', index, name = 'index'),
-    url(r'^popular/', popular, name = 'popular'),
+    url(r'^$', index, name='index'),
+    url(r'^popular/', popular, name='popular'),
     url(r'^question/', include('qa.urls')),
-    url(r'^admin/', admin.site.urls, name = 'admin'),
+    url(r'^admin/', admin.site.urls, name='admin'),
 
-    url(r'^login/', test, name = 'login'),
-    url(r'^signup/', test, name = 'signup'),
-    url(r'^ask/', test, name = 'ask'),
-    url(r'^new/', test, name = 'new')
+    url(r'^login/', test, name='login'),
+    url(r'^signup/', test, name='signup'),
+    url(r'^ask/', test, name='ask'),
+    url(r'^new/', test, name='new')
 ]
