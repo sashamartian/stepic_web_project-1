@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>{{title}}</title>
-  </head>
-  <body>
-    <div>
-      <h1>Последние добавленные вопросы</h1>
-      {% for q in questions %}
-        <h2><a href="{{q.get_url}}">{{q.title}}</a></h2>
-        <p>Добавлен: {{q.added_at}}</p>
+    <title>{{ title }}</title>
+</head>
+<body>
+<div>
+    <h1>Последние добавленные вопросы</h1>
+    {% for q in questions %}
+        <h2><a href="{{ q.get_url }}">{{ q.title }}</a></h2>
+        <p>Добавлен: {{ q.added_at }}</p>
         <br>
-      {% endfor %}
-    </div>
-    <nav><ul class="pagination">
-      {% for p in paginator.page_range %}
-        {% if p == page.number %}
-          <li class="active">
-        {% else %}
-          <li>
-        {% endif %}
-        <a href = "{{paginator.baseurl}}{{p}}">{{p}}</a>
+    {% endfor %}
+</div>
+<nav>
+    <ul class="pagination">
+        {% for p in paginator.page_range %}
+            {% if p == page.number %}
+                <li class="active">
+                    {% else %}
+                <li>
+            {% endif %}
+        <a href="{{ paginator.baseurl }}{{ p }}">{{ p }}</a>
         </li>
-      {% endfor %}
-    </ul></nav>
-  </body>
+        {% endfor %}
+    </ul>
+</nav>
+</body>
 </html>

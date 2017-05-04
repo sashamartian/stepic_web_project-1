@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>{{question.title}}</title>
-  </head>
-  <body>
+    <title>{{ question.title }}</title>
+</head>
+<body>
+<div>
+    <h1>{{ question.title }}</h1>
     <div>
-      <h1>{{question.title}}</h1>
-      <div>
-        <h2>{{question.text}}</h2>
-        <p>Добавлен: {{question.added_at}}</p>
-        <p>Рейтинг: {{question.rating}}</p>
-        <p>Автор: {{question.author}}</p>
-        <p>Поставили класс: {{question.likes}}</p>
-      </div>
-      <div>
-        {% for a in answers %}
-          <hr>
-          <p>{{a.text}}</p>
-          <p>Добавлен: {{a.added_at}}</p>
-          <p>Автор: {{a.author}}</p>
-        {% endfor %}
-      </div>
+        <h2>{{ question.text }}</h2>
+        <p>Добавлен: {{ question.added_at }}</p>
+        <p>Рейтинг: {{ question.rating }}</p>
+        <p>Автор: {{ question.author }}</p>
+        <p>Поставили класс: {{ question.likes }}</p>
     </div>
-  </body>
+    <div>
+        {% for a in answers %}
+            <hr>
+            <p>{{ a.text }}</p>
+            <p>Добавлен: {{ a.added_at }}</p>
+            <p>Автор: {{ a.author }}</p>
+        {% endfor %}
+    </div>
+</div>
+</body>
