@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{{ title }}</title>
+    <title>Популярные вопросы</title>
 </head>
 <body>
 <div>
-    <h1>Самые популярные вопросы</h1>
+    <h1>Популярные вопросы</h1>
     {% for q in questions %}
         <h2><a href="{{ q.get_url }}">{{ q.title }}</a></h2>
         <p>Рейтинг: {{ q.rating }}</p>

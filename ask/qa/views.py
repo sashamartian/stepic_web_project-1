@@ -13,7 +13,7 @@ def index(request):
     questions = Question.objects.new()
     paginator, page = paginate(request, questions)
     paginator.baseurl = '/?page='
-    return render(request, 'new.html', {
+    return render(request, 'index.html', {
         'questions': page.object_list,
         'paginator': paginator,
         'page': page,
@@ -76,7 +76,7 @@ def ask(request):
             return HttpResponseRedirect(new_url)
     else:
         form = AskForm()
-    return render(request, 'question_add.html', {
+    return render(request, 'ask.html', {
         'form': form
     })
 
