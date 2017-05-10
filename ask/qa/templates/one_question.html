@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>{{ question.title }}</title>
 </head>
 <body>
@@ -22,5 +22,13 @@
             <p>Автор: {{ a.author }}</p>
         {% endfor %}
     </div>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
 </div>
 </body>
+</html>

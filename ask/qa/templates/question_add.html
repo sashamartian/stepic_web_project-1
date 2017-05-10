@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Задать новый вопрос</title>
+</head>
+<body>
+<div>
+    <h1>Задайте свой вопрос</h1>
+    <div>
+        <form method="post" action="/ask/">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
