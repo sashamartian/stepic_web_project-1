@@ -6,6 +6,7 @@
 </head>
 <body>
 <div>
+    {{ auth }}
     <h1>Популярные вопросы</h1>
     {% for q in questions %}
         <h2><a href="{{ q.get_url }}">{{ q.title }}</a></h2>

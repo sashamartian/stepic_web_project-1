@@ -2,17 +2,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Новый вопрос</title>
+    <title>Вход</title>
 </head>
 <body>
 <div>
     {{ auth }}
-    <h1>Задайте свой вопрос</h1>
+    <h1>Введите данные для входа</h1>
     <div>
-        <form method="post" action="/ask/">
+        <form method="post" action="/login/">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Сохранить</button>
+            <button type="submit">Войти</button>
         </form>
     </div>
 </div>

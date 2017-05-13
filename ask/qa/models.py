@@ -15,11 +15,11 @@ class QuestionManager(models.Manager):
 
 class Question(models.Model):
     objects = QuestionManager()
-    title = models.CharField(max_length=255)
-    text = models.TextField()
+    title = models.CharField(max_length=100)
+    text = models.TextField(blank=True)
     added_at = models.DateField(auto_now_add=True)
     rating = models.IntegerField(default=0)
-    author = models.ForeignKey(User, related_name='questions_is_author', default='1')
+    author = models.ForeignKey(User, related_name='questions_is_author')
     likes = models.ManyToManyField(User, related_name='questions_likes', blank=True)
 
     def __str__(self):
@@ -33,7 +33,7 @@ class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateField(auto_now_add=True)
     question = models.ForeignKey(Question)
-    author = models.ForeignKey(User, default='1')
+    author = models.ForeignKey(User)
 
     def __str__(self):
         return self.text

@@ -6,6 +6,7 @@
 </head>
 <body>
 <div>
+    {{ auth }}
     <h1>{{ question.title }}</h1>
     <div>
         <h2>{{ question.text }}</h2>
@@ -23,11 +24,13 @@
         {% endfor %}
     </div>
     <div>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Сохранить</button>
-        </form>
+        {% if is_auth %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Сохранить</button>
+            </form>
+        {% endif %}
     </div>
 </div>
 </body>
