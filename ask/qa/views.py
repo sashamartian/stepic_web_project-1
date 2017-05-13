@@ -83,18 +83,41 @@ def one_question(request, question_id):
         })
 
 
-@login_required()
+# @login_required()
+# def ask(request):
+#     user = request.user
+#     if request.method == 'POST':
+#         form = AskForm(user, request.POST)
+#         if form.is_valid():
+#             new_question = form.save()
+#             new_url = new_question.get_url()
+#             return HttpResponseRedirect(new_url)
+#     else:
+#         form = AskForm(user)
+#     return render(request, 'ask.html', {
+#         'form': form,
+#         'auth': auth_output(user)
+#     })
+
+
 def ask(request):
     user = request.user
-    if request.method == 'POST':
-        form = AskForm(user, request.POST)
-        if form.is_valid():
-            new_question = form.save()
-            new_url = new_question.get_url()
-            return HttpResponseRedirect(new_url)
+    if user.is_authenticated():
+        if request.method == 'POST':
+            form = AskForm(user, request.POST)
+            if form.is_valid():
+                new_question = form.save()
+                new_url = new_question.get_url()
+                return HttpResponseRedirect(new_url)
+        else:
+            form = AskForm(user)
+        return render(request, 'ask.html', {
+            'form': form,
+            'auth': auth_output(user)
+        })
     else:
-        form = AskForm(user)
-    return render(request, 'ask.html', {
+        form = LoginForm()
+    return render(request, 'login.html', {
         'form': form,
         'auth': auth_output(user)
     })
